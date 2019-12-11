@@ -10,7 +10,7 @@ class Proxy_pools:
     
     #网址链接初始化
     PROXY_URL = "https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list"
-    CHECK_URL1 = "https://www.baidu.com"
+    CHECK_URL1 = "https://www.pangfa.xyz"
     CHECK_URL2 = "https://httpbin.org/ip"
     #数据库模块初始化
     INSERT_ACTIVE = "INSERT INTO spider_ip_pools_active(TYPE, URL, STATUS) VALUES('{0}', '{1}', '{2}');"
@@ -35,6 +35,7 @@ class Proxy_pools:
     def getexistsproxy(self, type, url):
         self.cur.execute(self.SELECT_ACTIVE.format(type, url))
         proxy_exists = self.cur.fetchone()
+        return 0
         if not proxy_exists:
             return 0
         else:
@@ -99,12 +100,12 @@ class Proxy_pools:
         self.logger.info("生成proxy代理成功" + ",id=" + str(id) + ",type=" + type + ",url=" + url + "...准备测试")
 
         try:
-            res = requests.get(self.CHECK_URL1, headers=headers,timeout=10)
+            res = requests.get(self.CHECK_URL1, proxies=proxy, headers=headers,timeout=10)
         except:
             self.logger.info("测试proxy代理失败" + ",id=" + str(id) + ",type=" + type + ",url=" + url + "...无法使用")
         else:
             status = 'US10'
-            if res.status_code == 200 and '<!--STATUS OK-->' in res.text:
+            if res.status_code == 200:
                 self.logger.info("测试proxy代理成功" + ",id=" + str(id) + ",type=" + type + ",url=" + url + "...可以使用")
                 proxy = (type, url, status)
                 return proxy

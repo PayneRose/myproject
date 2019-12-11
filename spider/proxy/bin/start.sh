@@ -1,1 +1,1 @@
-python /root/mysite/spider/proxy/bin/proxy_pools.py
+python /root/myproject/spider/proxy/bin/proxy_pools.py
