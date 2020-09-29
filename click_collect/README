@@ -1,1 +1,0 @@
-wget http://mirrors.tencentyun.com/install/platform_ops/qcloud/one_click_collect.sh && chmod u+x one_click_collect.sh && ./one_click_collect.sh
