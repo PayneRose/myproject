@@ -1,0 +1,15 @@
+【更新记录】
+【2019年3月16日】
+创建存储库
+yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
+yum -y install git-core
+git --version
+
+git config --global user.name "pangfa"
+git config --global user.email pangfaheng@163.com
+
+git clone git://github.com/PayneRose/shell.git
+git clone git://github.com/PayneRose/python.git
+
+
+

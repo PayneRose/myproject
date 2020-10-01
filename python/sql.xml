@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <sqlname name="deletesomething">
+    <sqlline>delete from table where opnid=':opnid:';</sqlline>
+    <colum1>opnid</colum1>
+  </sqlname>
+  <sqlname name="updatesomtime">
+    <sqlline>update table set opnid=':opnid:' where cycle=':cycle:';</sqlline>
+    <old_culum1>cycle</old_culum1>
+    <new_culum1>opnid</new_culum1>
+  </sqlname>
+  <sqlname name="selectsomtime">
+    <sqlline>select a.opnid,a.cycle from table where cycle=':cycle:';</sqlline>
+    <colum1>cycle</colum1>
+  </sqlname>
+  <sqlname name="insertsomtime">
+    <sqlline>insert into table (opnid,cycle) values(':opnid:',':cycle:');</sqlline>
+    <value1>opnid</value1>
+    <value2>cycle</value2>
+  </sqlname>
+</sql>
+
+
